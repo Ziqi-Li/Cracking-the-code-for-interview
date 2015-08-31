@@ -1,20 +1,17 @@
 '''
 Ziqi Li
-1.3 Given two strings, write a method to decide if one is a permutation of the other
+1.3 Design an algorithm and write code to remove the duplicate characters in a string without using any additional buffer. NOTE: One or two additional variables are fine. An extra copy of the array is not.
 '''
 
-def permutation(stringA, stringB):
-    if sorted(stringA) == sorted(stringB):
-    	return True
-    else: 
-    	return False
+def removeDups(string):
+    return "".join(set(string))
 
 
 def main():
-    print permutation("abc","bcccca")
-    print permutation("abc","cba")
-    print permutation("Ziqi Li", "Li ZZqi")
-    print permutation("  Z"," Z ")
+    print removeDups("bcccca")
+    print removeDups("cba")
+    print removeDups("Li ZZqi")
+    print removeDups(" Z ")
 
 if __name__ == '__main__':
     main()
