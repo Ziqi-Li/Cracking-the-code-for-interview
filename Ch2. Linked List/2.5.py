@@ -24,8 +24,8 @@ def findCircle(list):
     dict = {}
     if not list:
         return list
-    while not (list.data in dict):
-        dict[list.data] = True
+    while not (list in dict):
+        dict[list] = True
         list = list.next
 
     return list.data
@@ -42,7 +42,7 @@ def main():
     nodeB.next = nodeC
     nodeC.next = nodeD
     nodeD.next = nodeE
-    nodeE.next = nodeA
+    nodeE.next = nodeC
     #printList(list)
     print findCircle(list)
 
