@@ -1,7 +1,5 @@
 '''
 Ziqi Li
-4.1 Check if a tree is a balanced tree
-4.3 Given a sorted (increasing order) array, write an algorithm to create a binary tree with minimal height.
 4.5 Check if a tree is binary search tree
 '''
 
@@ -22,19 +20,16 @@ def printTreeInOrder(tree):
     printTreeInOrder(tree.right)
 
 #check if the tree is a BST
-def checkBST(tree):
-    if not tree:
-        return True
-    if not checkBST(tree.left) or not checkBST(tree.right):
-        return False
-    if not tree.left and not tree.right:
-        return True
-    if not tree.left:
-        return tree.data<=tree.right.data
-    if not tree.right:
-        return tree.data>=tree.left.data
-
-    return tree.data>=tree.left.data and tree.data<=tree.right.data
+def isValidBST(root):
+    min = float("-infinity")
+    max = float("+infinity")
+    def helper(root,min,max):
+        if not root:
+            return True
+        if root.val<=min or root.val>=max:
+            return False
+        return helper(root.left,min,root.val) and helper(root.right,root.val,max)
+    return helper(root,min,max)
 
 def main():
     tree1 = tree(10,tree(9,tree(8,tree(5,None,None),None),None),tree(3,None,None))
