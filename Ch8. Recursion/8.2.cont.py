@@ -12,6 +12,7 @@ def robotWalk(m, n):
         return robotWalk(m-1,n) + robotWalk(m,n-1)
 
 
+
 def main():
     print robotWalk(2,2)
 
